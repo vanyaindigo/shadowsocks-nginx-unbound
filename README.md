@@ -13,3 +13,5 @@ unbound - ротация логов unbound
 default - файл для настройки сайта Nginx
 
 nginx.conf - основные настройки Nginx
+
+sysctl.conf - настройки Linux
