@@ -1,0 +1,11 @@
+#!/bin/sh
+# указываем адрес нужного списка
+URL="https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts" # Разные списки смотреть здесь: https://github.com/StevenBlack/hosts
+# удаляем старый список при обновлении
+rm /etc/unbound/unbound.conf.d/hosts-alternates.conf 
+# добавляем "server:" в начало нового списка
+echo "server:" > /etc/unbound/unbound.conf.d/hosts-alternates.conf
+# получаем список хостов, форматируем и добавляем
+curl $URL | grep '^0\.0\.0\.0' | awk '{print "local-zone: \""$2"\" redirect\nlocal-data: \""$2". IN A 0.0.0.0\"\nlocal-data: \""$2". IN AAAA ::0\""}' >> /etc/unbound/unbound.conf.d/hosts-alternates.conf
+# перезапускаем unbound
+systemctl restart unbound

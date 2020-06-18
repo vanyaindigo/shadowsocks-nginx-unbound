@@ -1,0 +1,32 @@
+resolution_type: GETDNS_RESOLUTION_STUB
+round_robin_upstreams: 1
+appdata_dir: "/var/lib/stubby"
+tls_authentication: GETDNS_AUTHENTICATION_REQUIRED
+tls_query_padding_blocksize: 128
+edns_client_subnet_private: 1
+idle_timeout: 9000
+listen_addresses:
+  - 127.0.0.1@5453
+dns_transport_list:
+  - GETDNS_TRANSPORT_TLS
+tls_connection_retries: 5
+tls_backoff_time: 900
+timeout: 2000
+tls_ca_path: "/etc/ssl/certs/"
+upstream_recursive_servers:
+  - address_data: 1.1.1.1
+    tls_auth_name: "cloudflare-dns.com"
+    tls_port: 853
+  - address_data: 1.0.0.1
+    tls_auth_name: "cloudflare-dns.com"
+    tls_port: 853
+# Set the acceptable ciphers for DNS over TLS.  With OpenSSL 1.1.1 this list is
+# for TLS1.2 and older only. Ciphers for TLS1.3 should be set with the
+# tls_ciphersuites option. This option can also be given per upstream.
+# tls_cipher_list: "EECDH+AESGCM:EECDH+CHACHA20"
+# Set the acceptable cipher for DNS over TLS1.3. OpenSSL >= 1.1.1 is required
+# for this option. This option can also be given per upstream.
+tls_ciphersuites: "TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384:TLS_AES_128_GCM_SHA256"
+# Set the minimum acceptable TLS version. Works with OpenSSL >= 1.1.1 only.
+# This option can also be given per upstream.
+tls_min_version: GETDNS_TLS1_3
