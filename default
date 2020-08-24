@@ -13,8 +13,7 @@ server {
 	ssl_session_cache shared:SSL:50m;
 	ssl_session_timeout 1d;
 	ssl_session_tickets off;
-	ssl_protocols TLSv1.3 TLSv1.2;
-	ssl_ciphers 'EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH';
+	ssl_protocols TLSv1.3 TLSv1.2;	
 	ssl_ecdh_curve secp384r1;
 	# ssl_early_data on;		
 	add_header Content-Security-Policy "default-src https: data: 'unsafe-inline' 'unsafe-eval'" always;
