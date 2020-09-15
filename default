@@ -8,7 +8,7 @@ server {
 	}
 	ssl_certificate /etc/ssl/domain.me.pem;
 	ssl_certificate_key /etc/ssl/domain.me.key;
-	ssl_dhparam /etc/ssl/dhparam.pem;
+	ssl_dhparam /etc/ssl/dhparams.pem;
 	ssl_session_cache shared:le_nginx_SSL:1m;
 	ssl_session_cache shared:SSL:50m;
 	ssl_session_timeout 1d;
