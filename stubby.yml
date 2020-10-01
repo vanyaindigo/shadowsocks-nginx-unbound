@@ -26,7 +26,7 @@ upstream_recursive_servers:
 # tls_cipher_list: "EECDH+AESGCM:EECDH+CHACHA20"
 # Set the acceptable cipher for DNS over TLS1.3. OpenSSL >= 1.1.1 is required
 # for this option. This option can also be given per upstream.
-tls_ciphersuites: "TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384:TLS_AES_128_GCM_SHA256"
+# tls_ciphersuites: "TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384:TLS_AES_128_GCM_SHA256"
 # Set the minimum acceptable TLS version. Works with OpenSSL >= 1.1.1 only.
 # This option can also be given per upstream.
 tls_min_version: GETDNS_TLS1_3
