@@ -30,12 +30,12 @@ server {
 		proxy_pass https://youtube.com/;
         }
 	location /aghome/ {
-		proxy_pass http://127.0.0.1:8080/;
+		proxy_pass http://localhost:8080/;
 		proxy_redirect / /aghome/;
 		proxy_cookie_path / /aghome/;
 	}
 	location /dns-query {   
-		proxy_pass http://127.0.0.1:4043/;
+		proxy_pass http://localhost:4043/;
 		proxy_redirect / /dns-query/;
 		proxy_bind 192.168.1.2;   
 	}
