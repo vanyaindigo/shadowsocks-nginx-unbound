@@ -1,11 +1,4 @@
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    location / {
-        return 301 https://$host$request_uri;
-    }
-}
-server {
         listen       443 ssl http2 reuseport backlog=131072 fastopen=256;
         listen       [::]:443 ssl http2 reuseport backlog=131072 fastopen=256;        
 	server_name  domain.me;	
